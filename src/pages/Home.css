@@ -1,0 +1,231 @@
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.home-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  transition: opacity 0.8s, visibility 0.8s;
+}
+
+.home-loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.home-loader img {
+  width: min(86vw, 440px);
+  aspect-ratio: 1;
+  mix-blend-mode: screen;
+  animation: pulse 2s ease-in-out infinite;
+  -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 55%, transparent 72%);
+}
+
+.home-loader .bar {
+  width: min(50vw, 210px);
+  height: 3px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: -30px;
+}
+
+.home-loader .bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transition: width 0.25s;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.25);
+  }
+}
+
+#hero {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#fill {
+  position: absolute;
+  inset: -4%;
+  background: url('/assets/bg.webp') center / cover;
+  filter: blur(16px) brightness(0.55);
+}
+
+#c {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+#hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(2, 5, 11, 0.5), transparent 18%, transparent 70%, rgba(2, 5, 11, 0.55));
+}
+
+.home-container .top {
+  position: absolute;
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+  pointer-events: none;
+  z-index: 3;
+  letter-spacing: 0.05em;
+}
+
+.home-container .top img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  mix-blend-mode: screen;
+}
+
+.node {
+  position: absolute;
+  z-index: 4;
+  width: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font: 600 11px 'Inter', sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 0 1px 8px #000;
+  animation: float 4s ease-in-out infinite;
+}
+
+.node .ic {
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  transition: 0.25s;
+}
+
+.node svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.node:active .ic,
+.node:hover .ic {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 28px rgba(45, 139, 255, 0.7);
+  transform: scale(1.08);
+}
+
+#n-about {
+  left: 5%;
+  top: 11%;
+}
+
+#n-work {
+  right: 4%;
+  top: 25%;
+  animation-delay: -1.3s;
+}
+
+#n-contact {
+  left: 4%;
+  top: 50%;
+  animation-delay: -2.4s;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  z-index: 3;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+@media (min-width: 760px) {
+  .node {
+    width: 90px;
+    font-size: 12px;
+  }
+  .node .ic {
+    width: 84px;
+    height: 84px;
+    border-radius: 26px;
+  }
+  .node svg {
+    width: 36px;
+    height: 36px;
+  }
+  #n-about {
+    left: max(3%, calc(50% - 600px));
+    top: 20%;
+  }
+  #n-work {
+    right: max(3%, calc(50% - 600px));
+    top: 28%;
+  }
+  #n-contact {
+    left: max(3%, calc(50% - 560px));
+    top: 58%;
+  }
+}

@@ -1,0 +1,38 @@
+Setup Status Report
+===================
+Date: 2026-10-22
+
+1. npm create vite ran successfully
+   - Vite React scaffold was created manually (create-vite interactive CLI could not be
+     piped non-interactively on this system, so all scaffold files were written directly)
+   - Files created: vite.config.js, package.json, eslint.config.js, .gitignore,
+     index.html (Vite entry), src/main.jsx, src/App.jsx, src/App.css, src/index.css
+   - Vite version: 6.4.5
+
+2. npm install ran successfully
+   - 159 packages installed (react, react-dom, react-router-dom, three, vite,
+     @vitejs/plugin-react, eslint, and devDependencies)
+   - Note: required clean reinstall (remove node_modules + package-lock.json and re-run)
+     to resolve @rollup/rollup-win32-x64-msvc optional dependency npm bug
+   - npm run build verified: "built in 3.44s" with 0 errors
+
+3. public/assets/ contains all image files
+   - avatar.webp ✓
+   - bg.webp ✓
+   - bgwide.webp ✓
+   - char.webp ✓
+   - depth.png ✓
+   - logo.webp ✓
+   - logo_s.webp ✓
+   - js/three.min.js ✓
+   - Original assets/ directory preserved
+
+4. src/pages/ directory exists ✓
+   src/components/ directory exists ✓
+
+5. Original HTML files preserved:
+   - about.html ✓
+   - contact.html ✓
+   - portfolio.html ✓
+   - index.original.html (backup of original index.html) ✓
+   - index.html replaced with Vite entry point

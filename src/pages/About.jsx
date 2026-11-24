@@ -1,6 +1,52 @@
 import { Link } from 'react-router-dom'
 import './About.css'
 
+const STATS = [
+  { k: '09', l: 'Core technologies' },
+  { k: '05', l: 'Qualifications' },
+  { k: '02', l: 'Languages spoken' },
+  { k: '2027', l: 'B.Sc. completion' },
+]
+
+const STACK = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'PHP',
+  'Python',
+  'SQL',
+  'React',
+  'React Native',
+  'Node.js',
+]
+
+const EDUCATION = [
+  {
+    title: 'B.Sc. in Information Technology',
+    meta: 'Knutsford University College, Accra, Ghana',
+    year: 'Expected Nov 2027',
+  },
+  {
+    title: 'Diploma in Software Engineering',
+    meta: 'Openlabs Ghana (Formerly NIIT Ghana)',
+    year: '2020 – 2022',
+  },
+  {
+    title: 'Microsoft Certified Expert',
+    meta: 'Openlabs Ghana (Formerly NIIT Ghana)',
+    year: '2020 – 2022',
+  },
+  {
+    title: 'West African Senior School Certificate Examination (WASSCE)',
+    meta: 'Bishop Herman College',
+    year: '2017 – 2020',
+  },
+  {
+    title: 'Basic Education Certificate Examination (BECE)',
+    meta: 'Basic education',
+  },
+]
+
 export default function About() {
   const handlePrint = () => {
     window.print()
@@ -8,39 +54,92 @@ export default function About() {
 
   return (
     <div className="about-page">
+      <div className="ab-bg" aria-hidden="true">
+        <span className="ab-grid" />
+        <span className="ab-blob ab-blob-a" />
+        <span className="ab-blob ab-blob-b" />
+        <span className="ab-ghost">CV</span>
+      </div>
+
       <div className="wrap">
-        <nav>
+        <nav className="ab-nav">
           <Link to="/" state={{ fromBack: true }} aria-label="Home">
             ←
           </Link>
+          <span className="ab-nav-label">About / Curriculum Vitae</span>
           <button type="button" onClick={handlePrint}>
             Save CV as PDF
           </button>
         </nav>
-        <article className="sheet">
-          <header className="head">
-            <img src="/assets/avatar.webp" alt="Amponsah Blessed" />
-            <div>
-              <h1>AMPONSAH BLESSED</h1>
-              <div className="role">IT SUPPORT | SOFTWARE DEVELOPMENT</div>
-              <ul className="contact" style={{ marginTop: '10px' }}>
-                <li>Accra, Ghana</li>
-                <li>P. O. Box 11495, Accra North</li>
-                <li>
-                  <a href="tel:0242675385">0242675385</a>
-                </li>
-                <li>
-                  <a href="mailto:blessamponsah8@gmail.com">
-                    blessamponsah8@gmail.com
-                  </a>
-                </li>
-                <li>LinkedIn: Blessed Amponsah</li>
-              </ul>
-            </div>
-          </header>
 
-          <section>
-            <h2>Personal Profile</h2>
+        <header className="ab-hero">
+          <div className="ab-portrait">
+            <div className="ab-portrait-frame" aria-hidden="true" />
+            <img src="/assets/portrait.webp" alt="Amponsah Blessed" />
+            <span className="ab-badge">
+              <i />
+              Open to work
+            </span>
+          </div>
+
+          <div className="ab-intro">
+            <p className="ab-kicker">
+              IT Support <span>·</span> Software Development
+            </p>
+            <h1>
+              <span>Amponsah</span>
+              <span className="ab-outline">Blessed</span>
+            </h1>
+            <p className="ab-lead">
+              I keep systems running and build the ones people actually use —
+              full-stack web apps, hands-on hardware support, and the quiet
+              troubleshooting in between.
+            </p>
+
+            <ul className="ab-meta">
+              <li>
+                <small>Location</small>
+                <span>Accra, Ghana</span>
+              </li>
+              <li>
+                <small>Phone</small>
+                <a href="tel:0242675385">0242675385</a>
+              </li>
+              <li>
+                <small>Email</small>
+                <a href="mailto:blessamponsah8@gmail.com">
+                  blessamponsah8@gmail.com
+                </a>
+              </li>
+            </ul>
+
+            <div className="ab-actions">
+              <a className="ab-btn" href="mailto:blessamponsah8@gmail.com">
+                Let&rsquo;s talk
+                <span aria-hidden="true">↗</span>
+              </a>
+              <Link className="ab-btn ghost" to="/portfolio">
+                View work
+              </Link>
+            </div>
+          </div>
+        </header>
+
+        <div className="ab-stats">
+          {STATS.map((s) => (
+            <div className="ab-stat" key={s.l}>
+              <b>{s.k}</b>
+              <span>{s.l}</span>
+            </div>
+          ))}
+        </div>
+
+        <article className="ab-sheet">
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">01</span>
+              Personal Profile
+            </h2>
             <p>
               Motivated and adaptable IT professional with a background in
               software engineering and a strong foundation in full-stack
@@ -59,8 +158,11 @@ export default function About() {
             </p>
           </section>
 
-          <section>
-            <h2>Career Objective</h2>
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">02</span>
+              Career Objective
+            </h2>
             <p>
               To contribute technical and problem-solving skills to an
               organization while gaining practical experience, developing
@@ -69,80 +171,79 @@ export default function About() {
             </p>
           </section>
 
-          <section>
-            <h2>Work Experience</h2>
-            <div className="item">
-              <h3>National Service — National Insurance Commission, Accra</h3>
-              <div className="meta">November 2022 – September 2023</div>
-              <ul className="b">
-                <li>Educated members of the public on insurance and its benefits.</li>
-                <li>
-                  Inspected new and relocated branches and offices of insurance
-                  companies.
-                </li>
-                <li>
-                  Conducted road inspections relating to motor insurance.
-                </li>
-                <li>
-                  Inspected insurance arrangements for commercial buildings.
-                </li>
-              </ul>
-            </div>
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">03</span>
+              Work Experience
+            </h2>
+            <ol className="ab-timeline">
+              <li>
+                <div className="ab-tl-head">
+                  <h3>National Service</h3>
+                  <span className="ab-when">Nov 2022 — Sep 2023</span>
+                </div>
+                <div className="ab-where">National Insurance Commission, Accra</div>
+                <ul className="ab-bullets">
+                  <li>
+                    Educated members of the public on insurance and its benefits.
+                  </li>
+                  <li>
+                    Inspected new and relocated branches and offices of insurance
+                    companies.
+                  </li>
+                  <li>Conducted road inspections relating to motor insurance.</li>
+                  <li>
+                    Inspected insurance arrangements for commercial buildings.
+                  </li>
+                </ul>
+              </li>
+            </ol>
           </section>
 
-          <section>
-            <h2>Education &amp; Qualifications</h2>
-            <div className="item">
-              <h3>B.Sc. in Information Technology</h3>
-              <div className="meta">
-                Knutsford University College, Accra, Ghana | Expected November
-                2027
-              </div>
-            </div>
-            <div className="item">
-              <h3>Diploma in Software Engineering</h3>
-            </div>
-            <div className="item">
-              <h3>Microsoft Certified Expert</h3>
-            </div>
-            <div className="item">
-              <h3>
-                West African Senior School Certificate Examination (WASSCE)
-              </h3>
-            </div>
-            <div className="item">
-              <h3>Basic Education Certificate Examination (BECE)</h3>
-            </div>
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">04</span>
+              Education &amp; Qualifications
+            </h2>
+            <ul className="ab-edu">
+              {EDUCATION.map((e) => (
+                <li key={e.title}>
+                  <span className="ab-edu-dot" aria-hidden="true" />
+                  <div>
+                    <h3>{e.title}</h3>
+                    <span className="ab-where">{e.meta}</span>
+                  </div>
+                  {e.year && <span className="ab-when">{e.year}</span>}
+                </li>
+              ))}
+            </ul>
           </section>
 
-          <section>
-            <h2>Relevant Skills</h2>
-            <div className="row">
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">05</span>
+              Relevant Skills
+            </h2>
+            <div className="ab-skill">
               <b>Programming &amp; development</b>
-              <div className="chips">
-                <i>HTML</i>
-                <i>CSS</i>
-                <i>JavaScript</i>
-                <i>PHP</i>
-                <i>Python</i>
-                <i>SQL</i>
-                <i>React</i>
-                <i>React Native</i>
-                <i>Node.js</i>
+              <div className="ab-chips">
+                {STACK.map((t) => (
+                  <i key={t}>{t}</i>
+                ))}
               </div>
             </div>
-            <div className="row">
+            <div className="ab-skill">
               <b>IT support &amp; troubleshooting</b>
               <span>
                 Computer hardware troubleshooting, system maintenance, diagnosis
                 and resolution of common technical issues.
               </span>
             </div>
-            <div className="row">
+            <div className="ab-skill">
               <b>Productivity tools</b>
               <span>Microsoft Office 365.</span>
             </div>
-            <div className="row">
+            <div className="ab-skill">
               <b>Professional skills</b>
               <span>
                 Problem-solving, teamwork, independent working, confidentiality,
@@ -152,17 +253,23 @@ export default function About() {
             </div>
           </section>
 
-          <div className="two">
-            <section>
-              <h2>Languages</h2>
-              <div className="chips">
+          <div className="ab-two">
+            <section className="ab-sec">
+              <h2>
+                <span className="ab-no">06</span>
+                Languages
+              </h2>
+              <div className="ab-chips">
                 <i>English</i>
                 <i>Twi</i>
               </div>
             </section>
-            <section>
-              <h2>Interests</h2>
-              <div className="chips">
+            <section className="ab-sec">
+              <h2>
+                <span className="ab-no">07</span>
+                Interests
+              </h2>
+              <div className="ab-chips">
                 <i>Watching movies</i>
                 <i>Listening to music</i>
                 <i>Basketball and football</i>
@@ -171,10 +278,13 @@ export default function About() {
             </section>
           </div>
 
-          <section>
-            <h2>References</h2>
-            <div className="two">
-              <div className="ref">
+          <section className="ab-sec">
+            <h2>
+              <span className="ab-no">08</span>
+              References
+            </h2>
+            <div className="ab-two ab-refs">
+              <div className="ab-ref">
                 <b>Mr. David K. Afenyo</b>
                 <span>
                   Greater Accra Branch Manager, National Insurance Commission
@@ -182,7 +292,7 @@ export default function About() {
                   Tel: 0245810825
                 </span>
               </div>
-              <div className="ref">
+              <div className="ab-ref">
                 <b>Mr. Kwasi Addai</b>
                 <span>
                   Head of Academics, OpenLabs (formerly NIIT)
@@ -193,6 +303,11 @@ export default function About() {
             </div>
           </section>
         </article>
+
+        <p className="ab-foot">
+          Amponsah Blessed · Accra, Ghana ·{' '}
+          <a href="mailto:blessamponsah8@gmail.com">blessamponsah8@gmail.com</a>
+        </p>
       </div>
     </div>
   )

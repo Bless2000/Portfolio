@@ -306,6 +306,77 @@
   height: 100%;
 }
 
+/* Project Logo Showcase (used on cards that carry a brand logo) */
+.portfolio-page .card-logo-stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 13%;
+  height: 46%;
+  display: grid;
+  place-items: center;
+}
+
+.portfolio-page .logo-halo {
+  position: absolute;
+  width: min(80%, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(26px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.portfolio-page .logo-rings {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.portfolio-page .logo-rings span {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.portfolio-page .logo-rings span:nth-child(1) {
+  width: 56%;
+}
+
+.portfolio-page .logo-rings span:nth-child(2) {
+  width: 76%;
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-page .logo-rings span:nth-child(3) {
+  width: 96%;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.portfolio-page .card-logo {
+  position: relative;
+  z-index: 1;
+  width: 54%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.7));
+}
+
+.portfolio-page .card-logo-stage.wide .card-logo {
+  width: 76%;
+  max-width: 230px;
+}
+
+.portfolio-page .card-logo-stage.screen .card-logo {
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
+}
+
 .portfolio-page .card-vignette {
   position: absolute;
   inset: 0;

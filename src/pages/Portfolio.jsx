@@ -331,6 +331,40 @@ const PROJECTS = [
       </svg>
     ),
   },
+  {
+    name: 'UNIMART',
+    tag: 'E-Commerce Marketplace',
+    badge: 'Online Store',
+    host: 'unimart-theta-pink.vercel.app',
+    url: 'https://unimart-theta-pink.vercel.app/',
+    a: '#1a1305',
+    b: '#3f2d07',
+    c3: '#f5c542',
+    logo: '/assets/projects/unimart.png',
+    logoWide: true,
+    logoScreen: true,
+    cardDesc:
+      'A vibrant online marketplace for everyday shopping — browse curated categories, search the catalogue, and check out with a persistent cart and wishlist.',
+    desc: 'A modern e-commerce marketplace built as a fast single-page storefront. Shoppers can browse curated product categories, search the catalogue, save favourites to a wishlist, manage a persistent cart, and complete checkout, while seller and account flows support listings and order history. Deployed as a static edge build for instant page loads.',
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Vercel'],
+    highlights: ['Product Catalogue', 'Cart & Wishlist', 'Search & Filters'],
+  },
+  {
+    name: 'SALONBOOK',
+    tag: 'Salon Booking Platform',
+    badge: 'WhatsApp Booking',
+    host: 'salonbook-app-production.up.railway.app',
+    url: 'https://salonbook-app-production.up.railway.app',
+    a: '#080a1c',
+    b: '#2b1b0e',
+    c3: '#e9b872',
+    logo: '/assets/projects/salonbook.png',
+    cardDesc:
+      'A salon and barbershop booking system that turns WhatsApp chats into a tidy, conflict-free appointment book with automatic reminders.',
+    desc: 'A booking and scheduling platform for salons and barbershops, built for busy chairs. Customers book straight from the WhatsApp chat they already use — no app download or account required — while owners get one clean appointment book with smart slot-filling across the whole team, automatic 24-hour and 1-hour WhatsApp reminders, and secure multi-user shop accounts.',
+    tech: ['Laravel', 'PHP 8.3', 'WhatsApp API', 'Railway'],
+    highlights: ['WhatsApp Booking', 'Smart Slot Filling', 'Auto Reminders'],
+  },
 ]
 
 export default function Portfolio() {
@@ -467,7 +501,33 @@ export default function Portfolio() {
               <div className="poster">
                 {/* Visual Graphic with ambient overlay */}
                 <div className="card-graphic">
-                  {p.renderSvg()}
+                  {p.logo ? (
+                    <div
+                      className={`card-logo-stage ${p.logoWide ? 'wide' : ''} ${
+                        p.logoScreen ? 'screen' : ''
+                      }`}
+                    >
+                      <div
+                        className="logo-halo"
+                        style={{
+                          background: `radial-gradient(circle, ${p.c3}66 0%, transparent 70%)`,
+                        }}
+                      />
+                      <div className="logo-rings" aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                      <img
+                        className="card-logo"
+                        src={p.logo}
+                        alt={`${p.name} logo`}
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    p.renderSvg()
+                  )}
                   <div className="card-vignette" />
                 </div>
 

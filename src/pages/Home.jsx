@@ -225,7 +225,7 @@ export default function Home() {
         <canvas id="c" ref={canvasRef} />
         <div className="top">
           <img src="/assets/logo_s.webp" alt="BA" />
-          <span>IT STUDENT · WEB &amp; BACKEND (FOR NOW)</span>
+          <span>IT STUDENT · SOFTWARE ENGINEER (FOR NOW)</span>
         </div>
         <Link className="node" id="n-about" to="/about">
           <span className="ic">
